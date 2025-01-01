@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen Navigation Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    section {
+      display: none;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Screen Navigation Example</h1>
+  </header>
+  <main>
+    <section id="home" class="active">
+      <h2>Home Screen</h2>
+      <p>Welcome to the Home Screen.</p>
+      <button onclick="navigateTo('about')">Go to About</button>
+    </section>
+    <section id="about">
+      <h2>About Screen</h2>
+      <p>This is the About Screen.</p>
+      <button onclick="navigateTo('home')">Go to Home</button>
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 Your Company Name
+  </footer>
+  <script>
+    function navigateTo(screenId) {
+      // Hide all sections
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+      // Show the selected section
+      document.getElementById(screenId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
